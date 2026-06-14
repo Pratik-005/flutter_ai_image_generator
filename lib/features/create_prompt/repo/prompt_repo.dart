@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class PromptRepo {
@@ -23,13 +24,14 @@ class PromptRepo {
 
       return taskId;
     } catch (error) {
+      debugPrint(error.toString());
       throw Exception("Failed to generate task ID: $error");
-      print(error);
     }
   }
 
   static Future<String> generateImage(String prompt) async {
     try {
+      
       final taskId = await generateId(prompt);
 
       await Future.delayed(const Duration(seconds: 20));
@@ -47,8 +49,8 @@ class PromptRepo {
       final imageUrl = response.data['data']['generated'][0];
       return imageUrl;
     } catch (error) {
+      debugPrint(error.toString());
       throw Exception("Failed to generate task ID: $error");
-      print(error);
     }
   }
 }

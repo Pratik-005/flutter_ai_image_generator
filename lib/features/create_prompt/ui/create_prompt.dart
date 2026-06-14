@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ai_image_generator/features/create_prompt/bloc/create_prompt_bloc.dart';
-import 'package:flutter_ai_image_generator/features/create_prompt/ui/view_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import 'package:flutter_ai_image_generator/features/create_prompt/bloc/create_prompt_bloc.dart';
+import 'package:flutter_ai_image_generator/features/create_prompt/ui/view_image.dart';
 
 class CreatePrompt extends StatefulWidget {
   const CreatePrompt({super.key});
@@ -56,7 +57,12 @@ class _CreatePromptState extends State<CreatePrompt> {
               return Center(child: spinkit);
 
             case PrompErrorState:
-              return Center(child: Text("Something went wrong"));
+              return Center(
+                child: Text(
+                  "Something went wrong !",
+                  style: TextStyle(fontSize: 20),
+                ),
+              );
 
             case PromptInitialState:
               final initialState = state as PromptInitialState;
@@ -72,7 +78,6 @@ class _CreatePromptState extends State<CreatePrompt> {
                         ),
                       ),
                     ),
-                    // Divider(),
                     Container(
                       height: 250,
                       padding: EdgeInsets.all(20),
@@ -87,7 +92,6 @@ class _CreatePromptState extends State<CreatePrompt> {
                             ),
                           ),
                           SizedBox(height: 10),
-
                           TextField(
                             minLines: 3,
                             maxLines: 5,

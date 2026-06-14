@@ -71,14 +71,6 @@ class ViewImage extends StatelessWidget {
           context,
         ).showSnackBar(const SnackBar(content: Text("Image saved to gallery")));
       }
-
-      // final directory = Directory.systemTemp;
-
-      // final file = File(
-      //   '${directory.path}/image_${DateTime.now().millisecondsSinceEpoch}.png',
-      // );
-
-      // await file.writeAsBytes(res.data);
     } catch (error) {
       ScaffoldMessenger.of(
         context,
